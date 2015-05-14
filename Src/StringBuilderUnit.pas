@@ -27,6 +27,8 @@ type
     constructor Create;
     procedure Add(const aString: string); overload;
     procedure Add(const aStrings: array of string); overload;
+    procedure Append(const aString: string);
+    procedure AppendLine;
     function ToString: string;
     procedure Clean;
     destructor Destroy; override;
@@ -101,6 +103,16 @@ var
 begin
   for i := 0 to Length(aStrings) - 1 do
     Add(aStrings[i]);
+end;
+
+procedure TStringBuilder.Append(const aString: string);
+begin
+  Add(aString);
+end;
+
+procedure TStringBuilder.AppendLine;
+begin
+  Add(#13#10);
 end;
 
 function TStringBuilder.ToString: string;
