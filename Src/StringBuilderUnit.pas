@@ -25,8 +25,8 @@ type
     property Tail: PStringBuilderMemoryBlock read FTail;
     property TotalLength: Cardinal read FTotalLength;
     constructor Create;
-    procedure Add(const aString: string);
-    procedure Add(const aStrings: array of string);
+    procedure Add(const aString: string); overload;
+    procedure Add(const aStrings: array of string); overload;
     function ToString: string;
     procedure Clean;
     destructor Destroy; override;
